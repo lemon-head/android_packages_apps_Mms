@@ -20,6 +20,16 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <Preference
+        android:title="@string/themes"
+        android:summary="@string/themes_summary"
+        android:key="pref_themes">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.android.mms.themes.Themes"
+            android:targetPackage="com.android.mms" />
+    </Preference>
+
     <!-- Storage Settings -->
     <PreferenceCategory android:title="@string/pref_sms_storage_title"
         android:key="pref_key_storage_settings">
@@ -215,6 +225,13 @@
             android:key="pref_key_enable_emojis"
             android:title="@string/pref_title_enable_emojis"
             android:summary="@string/pref_summary_enable_emojis"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="pref_key_emojis_quick"
+            android:title="@string/pref_title_pref_key_emojis_quick"
+            android:summary="@string/pref_summary_pref_key_emojis_quick"
+            android:dependency="pref_key_enable_emojis"
             android:defaultValue="false" />
 
         <CheckBoxPreference
