@@ -45,6 +45,7 @@ import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
+import android.media.VibrationPattern;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -900,7 +901,8 @@ public class MessagingNotification {
         String title = null;
         String privateModeContentText = null;
         Bitmap avatar = null;
-        if (uniqueThreadCount > 1) {    // messages from multiple threads
+        long[] customVibration = null;
+        if (uniqueThreadCount > 1) { // messages from multiple threads
             Intent mainActivityIntent = new Intent(Intent.ACTION_MAIN);
 
             mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
@@ -948,6 +950,9 @@ public class MessagingNotification {
                     privateModeContentText = context.getString(R.string.notification_single_text_privacy_mode);
                 }
             }
+
+            //check for custom vibration pattern
+            customVibration = getVibrationPattern(context, mostRecentNotification.mSender.getCustomVibrationUriString());
 
             taskStackBuilder.addParentStack(ComposeMessageActivity.class);
             taskStackBuilder.addNextIntent(mostRecentNotification.mClickIntent);
@@ -997,7 +1002,12 @@ public class MessagingNotification {
                         if(!mVibratePattern.equals("")) {
                             noti.setVibrate(parseVibratePattern(mVibratePattern));
                         } else {
-                            defaults |= Notification.DEFAULT_VIBRATE;
+                            if (customVibration == null) {
+                                defaults |= Notification.DEFAULT_VIBRATE;
+                            }
+                            else {
+                                noti.setVibrate(customVibration);
+                            }
                         }
             }
 
@@ -1560,5 +1570,16 @@ public class MessagingNotification {
         }
 
         return null;
+    }
+
+    private static long[] getVibrationPattern(Context context, String mCustomVibrationUriString) {
+        if (TextUtils.isEmpty(mCustomVibrationUriString)) {
+            return null;
+        }
+        else {
+            Uri mCustomVibrationUri = Uri.parse(mCustomVibrationUriString);
+            VibrationPattern mVibrationPattern = new VibrationPattern(mCustomVibrationUri, context);
+            return mVibrationPattern.getPattern();
+        }
     }
 }
