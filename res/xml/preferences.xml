@@ -150,6 +150,12 @@
             android:defaultValue="true"
             android:title="@string/pref_title_mms_notification_vibrate_call"
             android:summary="@string/pref_summary_mms_notification_vibrate_call" />
+
+
+        <CheckBoxPreference android:key="pref_key_sms_breath"
+            android:title="@string/sms_breath"
+            android:summary="@string/sms_breath_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <!-- QuickMessage settings -->
