@@ -781,11 +781,6 @@
     <!-- In message list items, this string builds the timestamp line when the message is in a group [CHAR LIMIT=NONE] -->
     <string name="message_timestamp_format"><xliff:g id="string" example="Fred Flinstone">%1$s</xliff:g>\u0020-\u0020<xliff:g id="string" example="9:39AM">%2$s</xliff:g></string>
 
-
-   <!-- Breathing Notifications -->
-   <string name="sms_breath">Breathing SMS</string>
-   <string name="sms_breath_summary">Will give your sms notifications breathing effect in the statusbar.</string>
-
     <string name="discard_message_reason_all_invalid">Your message will be discarded because all the recipients are invalid.</string>
     <string name="discard_message_reason_some_invalid">Your message will be discarded because it has some invalid recipients.</string>
     <string name="menu_copy_url">Copy url <xliff:g id="extractedurl">%s</xliff:g></string>

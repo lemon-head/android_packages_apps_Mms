@@ -51,6 +51,7 @@ import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.provider.Telephony.Mms;
 import android.provider.Telephony.Sms;
 import android.telephony.TelephonyManager;
@@ -876,11 +877,8 @@ public class MessagingNotification {
             return;
         }
 
-        boolean makeBreath = MessagingPreferenceActivity.getBreathEnabled(context);
-
         // Figure out what we've got -- whether all sms's, mms's, or a mixture of both.
         final int messageCount = notificationSet.size();
-        if (messageCount < 1) return;
         NotificationInfo mostRecentNotification = notificationSet.first();
 
         final Notification.Builder noti = new Notification.Builder(context)
@@ -964,10 +962,11 @@ public class MessagingNotification {
             taskStackBuilder.addNextIntent(mostRecentNotification.mClickIntent);
         }
         // Always have to set the small icon or the notification is ignored
-        if (!makeBreath) {
-            noti.setSmallIcon(R.drawable.stat_notify_sms);
-          } else {
-            noti.setSmallIcon(R.drawable.stat_notify_sms_breath);
+        if (Settings.System.getInt(context.getContentResolver(),
+                Settings.System.SMS_BREATH, 0) == 1) {
+               noti.setSmallIcon(R.drawable.stat_notify_sms_breath);
+           } else {
+               noti.setSmallIcon(R.drawable.stat_notify_sms);
         }
 
         NotificationManager nm = (NotificationManager)
