@@ -173,12 +173,4 @@ public class SlideListItemView extends LinearLayout implements SlideViewInterfac
         // TODO Auto-generated method stub
 
     }
-
-    @Override
-    public void setVcard(Uri lookupUri, String name) {
-    }
-
-    @Override
-    public void setVcardVisibility(boolean visible) {
-    }
 }

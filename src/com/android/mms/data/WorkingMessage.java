@@ -120,7 +120,6 @@ public class WorkingMessage {
     public static final int VIDEO = 2;
     public static final int AUDIO = 3;
     public static final int SLIDESHOW = 4;
-    public static final int VCARD = 5;
 
     // Current attachment type of the message; one of the above values.
     private int mAttachmentType;
@@ -267,8 +266,6 @@ public class WorkingMessage {
                 mAttachmentType = VIDEO;
             } else if (slide.hasAudio()) {
                 mAttachmentType = AUDIO;
-            } else if (slide.hasVcard()) {
-                mAttachmentType = VCARD;
             }
         }
 
@@ -648,8 +645,6 @@ public class WorkingMessage {
                 slideShowEditor.changeVideo(slideNum, uri);
             } else if (type == AUDIO) {
                 slideShowEditor.changeAudio(slideNum, uri);
-            } else if (type == VCARD) {
-                slideShowEditor.changeVcard(slideNum, uri);
             } else {
                 result = UNSUPPORTED_TYPE;
             }
