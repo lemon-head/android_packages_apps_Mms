@@ -2080,7 +2080,6 @@ public class ComposeMessageActivity extends Activity
             mRecipientsEditor = (RecipientsEditor)findViewById(R.id.recipients_editor);
             mRecipientsEditor.setVisibility(View.VISIBLE);
             mRecipientsPicker = (ImageButton)findViewById(R.id.recipients_picker);
-            mRecipientsPicker.setVisibility(View.VISIBLE);
         }
         mRecipientsPicker.setOnClickListener(this);
 
