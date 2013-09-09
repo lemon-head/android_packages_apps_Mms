@@ -47,10 +47,11 @@ public class ContactList extends ArrayList<Contact>  {
      *
      * @param uris phone URI to create the ContactList
      */
-    public static ContactList blockingGetByUris(Uri[] uris) {
+    public static ContactList blockingGetByUris(Parcelable[] uris) {
         ContactList list = new ContactList();
         if (uris != null && uris.length > 0) {
-            for (Uri uri : uris) {
+            for (Parcelable p : uris) {
+                Uri uri = (Uri) p;
                 if ("tel".equals(uri.getScheme())) {
                     Contact contact = Contact.get(uri.getSchemeSpecificPart(), true);
                     list.add(contact);
