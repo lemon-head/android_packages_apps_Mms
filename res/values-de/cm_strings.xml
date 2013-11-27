@@ -123,4 +123,5 @@
     <string name="send_delay_10seconds">10 Sekunden</string>
     <string name="send_delay_20seconds">20 Sekunden</string>
     <string name="send_delay_30seconds">30 Sekunden</string>
+    <string name="menu_as_unread">Markiere als ungelesen</string>
 </resources>

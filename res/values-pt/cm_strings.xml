@@ -142,4 +142,5 @@
     <string name="progress_mms_title">Transação MMS em outra assinatura em progresso</string>
     <string name="progress_mms">Mensagem: MMS em progresso\u2026</string>
     <string name="progress_mms_text">Toque para tentar novamente</string>
+    <string name="menu_as_unread">Marcar como não lida</string>
 </resources>

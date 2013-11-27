@@ -145,4 +145,5 @@
     <string name="progress_mms_title">Er wordt nog mms verzonden op ander abonnement</string>
     <string name="progress_mms">Berichten: mms wordt verwerkt\u2026</string>
     <string name="progress_mms_text">Tik om opnieuw te proberen</string>
+    <string name="menu_as_unread">Markeren als ongelezen</string>
 </resources>

@@ -116,4 +116,5 @@
     <string name="menu_mobile">Mobiles uniquement</string>
     <string name="menu_groups">Afficher les groupes</string>
     <string name="fastscroll_index_groups">GR</string>
+    <string name="menu_as_unread">Marquer comme non lu</string>
 </resources>
