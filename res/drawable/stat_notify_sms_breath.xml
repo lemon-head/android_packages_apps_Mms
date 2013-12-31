@@ -30,6 +30,7 @@
     <item android:duration="80" android:drawable="@drawable/stat_notify_sms_14" />
     <item android:duration="80" android:drawable="@drawable/stat_notify_sms_13" />
     <item android:duration="80" android:drawable="@drawable/stat_notify_sms_12" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_sms_11" />
     <item android:duration="80" android:drawable="@drawable/stat_notify_sms_10" />
     <item android:duration="80" android:drawable="@drawable/stat_notify_sms_9" />
     <item android:duration="80" android:drawable="@drawable/stat_notify_sms_8" />
